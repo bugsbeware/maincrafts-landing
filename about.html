@@ -24,8 +24,8 @@
         header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 1000; }
         .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 0.5rem; }
-        .nav-links { display: flex; gap: 2rem; align-items: center; }
-        .nav-links a { font-weight: 500; color: var(--dark); transition: var(--transition); }
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+        .nav-links a { font-weight: 500; color: var(--dark); transition: var(--transition); font-size: 0.95rem; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary); }
 
         .about-section { padding: 10rem 2rem 6rem; max-width: 1000px; margin: 0 auto; }
@@ -42,7 +42,7 @@
         .about-card li i { color: var(--primary); }
 
         footer { background: var(--dark); color: #94a3b8; padding: 3rem 2rem; text-align: center; border-top: 1px solid #1e293b; }
-        .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; }
+        .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
         .footer-links a:hover { color: #ffffff; }
 
         @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } .about-header h1 { font-size: 2.2rem; } }
@@ -57,6 +57,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="submissions.html">Submissions</a></li>
             </ul>
         </div>
     </header>
@@ -79,7 +80,7 @@
                 <ul>
                     <li><i class="fa-solid fa-check-circle"></i> Modern CSS Grids & Flexbox Layouts</li>
                     <li><i class="fa-solid fa-check-circle"></i> Clean, Maintainable Semantic HTML</li>
-                    <li><i class="fa-solid fa-check-circle"></i> Interactive Form Validation with JS</li>
+                    <li><i class="fa-solid fa-check-circle"></i> LocalStorage Data Saving via JS</li>
                     <li><i class="fa-solid fa-check-circle"></i> Fully Optimized for Mobile Devices</li>
                 </ul>
             </div>
@@ -91,6 +92,7 @@
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
+            <a href="submissions.html">Submissions</a>
         </div>
         <p>© 2025 MainCrafts. All rights reserved.</p>
     </footer>

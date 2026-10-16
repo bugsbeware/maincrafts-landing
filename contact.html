@@ -24,8 +24,8 @@
         header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 1000; }
         .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 0.5rem; }
-        .nav-links { display: flex; gap: 2rem; align-items: center; }
-        .nav-links a { font-weight: 500; color: var(--dark); transition: var(--transition); }
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+        .nav-links a { font-weight: 500; color: var(--dark); transition: var(--transition); font-size: 0.95rem; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary); }
 
         .contact-section { padding: 10rem 2rem 6rem; max-width: 600px; margin: 0 auto; }
@@ -43,11 +43,13 @@
         .submit-btn { width: 100%; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #ffffff; padding: 0.9rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: var(--transition); font-size: 1rem; }
         .submit-btn:hover { opacity: 0.9; transform: translateY(-1px); }
 
-        /* Success Message Banner */
         #success-msg { display: none; margin-top: 1rem; padding: 1rem; background: #d1fae5; color: #065f46; border-radius: 8px; text-align: center; font-weight: 500; }
+        
+        .view-link { display: block; text-align: center; margin-top: 1.5rem; color: var(--primary); font-weight: 500; }
+        .view-link:hover { text-decoration: underline; }
 
         footer { background: var(--dark); color: #94a3b8; padding: 3rem 2rem; text-align: center; border-top: 1px solid #1e293b; margin-top: 4rem; }
-        .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; }
+        .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
         .footer-links a:hover { color: #ffffff; }
     </style>
 </head>
@@ -60,6 +62,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="submissions.html">Submissions</a></li>
             </ul>
         </div>
     </header>
@@ -84,8 +87,10 @@
                 <textarea id="message" placeholder="Type your message here..."></textarea>
             </div>
             <button type="submit" class="submit-btn">Send Message</button>
-            <div id="success-msg">Thank you! Your message has been sent successfully.</div>
+            <div id="success-msg">Message saved successfully! Check Submissions page.</div>
         </form>
+
+        <a href="submissions.html" class="view-link">View All Submissions →</a>
     </main>
 
     <footer>
@@ -93,33 +98,46 @@
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
+            <a href="submissions.html">Submissions</a>
         </div>
         <p>© 2025 MainCrafts. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript Validation Script -->
+    <!-- JS Validation & LocalStorage Script -->
     <script>
         const form = document.getElementById('contactForm');
         const successMsg = document.getElementById('success-msg');
 
         form.addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop form from direct submission
+            e.preventDefault();
 
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
 
-            // Check if name or email are empty
-            if (name === "" || email === "") {
-                alert("Please fill in both your Name and Email fields before submitting.");
+            // 1. Validation check for empty fields
+            if (name === "" || email === "" || message === "") {
+                alert("All fields (Name, Email, Message) are required!");
                 return;
             }
 
-            // Simple validation success action
+            // 2. Create submission object
+            const newSubmission = {
+                name: name,
+                email: email,
+                message: message,
+                date: new Date().toLocaleString()
+            };
+
+            // 3. Save to LocalStorage
+            let submissions = JSON.parse(localStorage.getItem('maincrafts_submissions')) || [];
+            submissions.push(newSubmission);
+            localStorage.setItem('maincrafts_submissions', JSON.stringify(submissions));
+
+            // 4. Show success & reset form
             successMsg.style.display = "block";
             form.reset();
 
-            // Hide success message after 4 seconds
             setTimeout(() => {
                 successMsg.style.display = "none";
             }, 4000);

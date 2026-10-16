@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MainCrafts - About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --secondary: #06b6d4;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --border: #e2e8f0;
+            --transition: all 0.3s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark); background-color: var(--light); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 0.5rem; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { font-weight: 500; color: var(--dark); transition: var(--transition); }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+        .about-section { padding: 10rem 2rem 6rem; max-width: 1000px; margin: 0 auto; }
+        .about-header { text-align: center; margin-bottom: 4rem; }
+        .about-header h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; color: var(--dark); }
+        .about-header p { font-size: 1.2rem; color: var(--gray); }
+
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 4rem; }
+        .about-text h2 { font-size: 2rem; margin-bottom: 1rem; color: var(--dark); }
+        .about-text p { color: var(--gray); margin-bottom: 1rem; }
+        .about-card { background: #ffffff; padding: 2.5rem; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.02); }
+        .about-card ul { display: flex; flex-direction: column; gap: 1rem; }
+        .about-card li { display: flex; align-items: center; gap: 0.75rem; font-weight: 500; }
+        .about-card li i { color: var(--primary); }
+
+        footer { background: var(--dark); color: #94a3b8; padding: 3rem 2rem; text-align: center; border-top: 1px solid #1e293b; }
+        .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; }
+        .footer-links a:hover { color: #ffffff; }
+
+        @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } .about-header h1 { font-size: 2.2rem; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-cube"></i> MainCrafts</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="about-section">
+        <div class="about-header">
+            <h1>About MainCrafts</h1>
+            <p>We are dedicated to building scalable, elegant, and lightning-fast digital solutions.</p>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>Our Mission</h2>
+                <p>MainCrafts was founded with a clear goal: to simplify modern web development and provide clean, high-performance web structures for businesses and creators.</p>
+                <p>Whether you are launching a personal brand or an enterprise app, our framework equips you with tools that prioritize speed, aesthetics, and accessibility.</p>
+            </div>
+            <div class="about-card">
+                <h3>Why Choose Us?</h3>
+                <br>
+                <ul>
+                    <li><i class="fa-solid fa-check-circle"></i> Modern CSS Grids & Flexbox Layouts</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Clean, Maintainable Semantic HTML</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Interactive Form Validation with JS</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Fully Optimized for Mobile Devices</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <p>© 2025 MainCrafts. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
